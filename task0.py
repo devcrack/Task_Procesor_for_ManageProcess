@@ -1,7 +1,7 @@
 from celery import Celery
 import os
 from pprint import pprint
-app = Celery('a_Task', broker='amqp://devcrack:mientras123@192.168.100.12:5672')
+app = Celery('a_Task', broker='amqp://devcrack:mientras123@192.168.100.5:5672')
 
 @app.task
 def add(x,y):
