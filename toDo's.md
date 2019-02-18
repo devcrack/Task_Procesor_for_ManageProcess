@@ -9,7 +9,9 @@
     - [Celery and the Flask Application Factory Pattern](https://blog.miguelgrinberg.com/post/celery-and-the-flask-application-factory-pattern)
     - [Creating Web APIs with Python and Flask ](https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask)
     - [Using Celery With Flask](https://blog.miguelgrinberg.com/post/using-celery-with-flask)
+    - [How to structure a Flask-RESTPlus web service for production builds](https://medium.freecodecamp.org/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563)
     
 - [ ]Implements the new Architecture recently designed for Process in Hpicc   as an API. 
 - [ ] Try to do the same with Cassandra to store task results in that type of data base.
     
+https://medium.freecodecamp.org/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563
