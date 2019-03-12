@@ -1,6 +1,7 @@
 from flask import Flask, make_response, request
 from flask import jsonify
 
+from main.utils import select_program
 import main.task_s.task0 as task0
 import main.configure
 
@@ -23,7 +24,6 @@ def api():
 
         if data is None:
             raise ValueError
-
         try:
             if data:
                 print(data)
@@ -38,13 +38,13 @@ def api():
         return make_response('data error', 409)
 
     #From we doing some insteresting stuffs
-
+    call_task(data)
 
     return make_response('Chido', 200)
 
 
 
-
-
-def call_task(data):
-    
+def call_task(input):
+    id_program = input['id_process']
+    print('Id_Program = ', id_program)
+    select_program.program_execute(id_program)
