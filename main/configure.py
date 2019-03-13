@@ -16,4 +16,4 @@ class BaseConfig:
 
 class Development_Config(BaseConfig):
     DEBUG = True  
-    
+
