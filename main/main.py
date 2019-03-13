@@ -44,7 +44,8 @@ def api():
 
 
 
+
 def call_task(input):
     id_program = input['id_process']
     print('Id_Program = ', id_program)
-    select_program.program_execute(id_program)
+    select_program.program_execute(id_program, celery_instance)

@@ -8,7 +8,7 @@ def yukawa_exe():
     print('Yukawa  Executed')
 
 
-def program_execute(id_prog):
+def program_execute(id_prog, celery):
     if id_prog == 0:
         hard_sphere_exe()
     if id_prog == 1:
