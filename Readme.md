@@ -8,6 +8,11 @@ You can also install the management plugin for make more easy to peek into a run
 ```
     sudo rabbitmq-plugins enable rabbitmq_management
 
+    [OUTPUT]:
+    .
+    .
+    .
+    .
     The following plugins have been enabled:  
     mochiweb  
     webmachine  
