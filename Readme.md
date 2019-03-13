@@ -1,5 +1,11 @@
 # Task Process for Process Manager
 ## Requirements :
+* Rabittmq
+* celery
+* virtualenv
+* python 3 or higher
+
+## RabbitMQ configuration
 First of all you need to have install the broker. For this we going use RabbitQM server.
 
 For install this: ```sudo apt install rabbitmq-server``` :+1:
