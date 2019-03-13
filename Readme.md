@@ -42,3 +42,12 @@ Setting tags for user "ccm-admin" to [administrator] ......done.
 rabbitmqctl set_permissions -p / <YOUR_USERNAME> ".*" ".*" ".*"
 
 ```
+## Celery broker configuration
+In your Celery base configuration you have to add the parameters that we have configured 
+```python
+CELERY_BROKER_URL = 'amqp://<YOUR_USERNAME>:<YOUR_USERPASSWORD>@<BROKER_SERVER_ADDRESS>:5672'
+```
+A Result Backend if you have
+```python
+CELERY_RESULT_BACKEND = 'mongodb://user:mientras123@ds157574.mlab.com:57574/connect_to_mongo'
+```
