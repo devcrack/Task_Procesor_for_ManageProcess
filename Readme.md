@@ -57,3 +57,8 @@ A Result Backend if you have
 ```python
 CELERY_RESULT_BACKEND = 'mongodb://user:mientras123@ds157574.mlab.com:57574/connect_to_mongo'
 ```
+## Executing Task 
+```bash
+celery worker -A main.main.celery_instance --loglevel=info
+```
+

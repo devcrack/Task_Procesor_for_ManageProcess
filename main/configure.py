@@ -11,7 +11,7 @@ class BaseConfig:
     CELERY_BROKER_URL =  'amqp://guest@localhost//'
     CELERY_RESULT_BACKEND = 'mongodb://user:mientras123@ds157574.mlab.com:57574/connect_to_mongo'
     #CELERY_INCLUDE = ['task_s.mail_tasks']   
-    CELERY_INCLUDE = ['task_s.task1']   
+    CELERY_INCLUDE = ['main.task_s.task1']   
 
 
 class Development_Config(BaseConfig):
