@@ -4,4 +4,4 @@ import main.machine as machine
 
 @shared_task
 def exe_hrdsphere(frac_vol):
-    machine.process_lite.exe_hard_sphere_by_user
+    machine.process_lite.exe_hard_sphere_by_user(frac_vol)
