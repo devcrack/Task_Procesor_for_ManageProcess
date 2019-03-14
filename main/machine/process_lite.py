@@ -22,9 +22,9 @@ def exe_hard_sphere(frac_vol):
         Returns:
             void:nothing :p
     """
-    exe = prg_path + '/01Sk_HSphere/Benny_Version/01Hard_Spheer' 
+    exe = prg_path + '/01Sk_HSphere/Benny_Version/01Hard_Spheere' 
     
-    pcs = sbp.Popen(exe, frac_vol.strip(),stdout=sbp.PIPE, stderr=sbp.PIPE)
+    pcs = sbp.Popen([exe, str(frac_vol)], stdout=sbp.PIPE, stderr=sbp.PIPE)
     
     out, error = pcs.communicate()
 
