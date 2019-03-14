@@ -13,7 +13,7 @@ celery_instance = task0.make_celery(flask_app) #Creating celery Instance
 
 
 """ Get the petition with the json attached for process the request """
-@flask_app.route('/send_lite/task' , methods=['POST'])
+@flask_app.route('/lite_task' , methods=['POST'])
 def api():
     data = None
     try:
@@ -47,5 +47,7 @@ def api():
 
 def call_task(input):
     id_program = input['id_process']
+    f_v = input['frac_vol']
     print('Id_Program = ', id_program)
-    select_program.program_execute(id_program, celery_instance)
+
+    select_program.program_execute(id_program, f_v)
