@@ -1,6 +1,7 @@
 def exe_hard_sphere_by_user(frac_vol):
-    print('Soft Process ACTIVATE\n\n\n')
-    print (frac_vol)
+    print('Hard Sphere Executing\n\n\n')
+    print ('Volumen Fraction = 'frac_vol)
+    
 """     path = os.chdir('/home/yo/REPOSITORIES/Bank_Models/01Sk_HSphere/Benny_Version')                                                                                                    # Aqui cambiamos el directorio base en la ejecucion del programa.
     path = os.getcwd()
     print(path)
