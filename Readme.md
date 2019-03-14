@@ -62,3 +62,9 @@ CELERY_RESULT_BACKEND = 'mongodb://user:mientras123@ds157574.mlab.com:57574/conn
 celery worker -A main.main.celery_instance --loglevel=info
 ```
 
+# Todos
+- [ ]Enable Lite Task for Task Process
+    - [ ] Codify the executiong of Hard Sphere
+    - [ ] Codify the executiong of Soft Sphere
+    - [ ] Codify the executiong of Yukawa
+    - [ ] Execute with API and Celery

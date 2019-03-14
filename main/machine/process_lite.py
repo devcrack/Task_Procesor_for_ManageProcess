@@ -1,17 +1,41 @@
-def exe_hard_sphere(frac_vol):
-    print('Hard Sphere Executing\n\n\n')
-    print ('Volumen Fraction = ',frac_vol)
+import os.path
+import subprocess as sbp
 
-"""     path = os.chdir('/home/yo/REPOSITORIES/Bank_Models/01Sk_HSphere/Benny_Version')                                                                                                    # Aqui cambiamos el directorio base en la ejecucion del programa.
-    path = os.getcwd()
-    print(path)
-    hard_sphere_process = subprocess.Popen([path + '/01Hard_Spheere', fraction_volumen.strip()], stdout=subprocess.PIPE, stderr=subprocess.PIPE)                                              # Ejecutamos el proceso para el calculo de esferas duras.
-    out, error = hard_sphere_process.communicate()
+
+home = os.path.expanduser('~')
+
+prg_dir = '/core_prg/Bank_Mdls'
+
+"""/home/<USER_DIRECTORY>/core_prg/Bank_Mdls  """
+prg_path = home + prg_dir
+
+
+def exe_hard_sphere(frac_vol):
+    """ 
+    Execute the program of hard sphere 
+
+
+    Args:
+
+        frac_vol (float):Volumen Fraction for do the calculates.
+
+        Returns:
+            void:nothing :p
+    """
+    exe = prg_path + '/01Sk_HSphere/Benny_Version/01Hard_Spheer' 
+    
+    pcs = sbp.Popen(exe, frac_vol.strip(),stdout=sbp.PIPE, stderr=sbp.PIPE)
+    
+    out, error = pcs.communicate()
+
     if out:
         print('OK', out)
     if error:
         print('Error', error.strip())
         return ':('
-    if not hard_sphere_process.poll():
+    if not pcs.poll():
         print("Program hard_sphere execute finish")
- """
+
+
+if __name__ == "__main__":
+    exe_hard_sphere(0.5)
