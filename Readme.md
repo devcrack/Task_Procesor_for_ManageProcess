@@ -63,8 +63,10 @@ celery worker -A main.main.celery_instance --loglevel=info
 ```
 
 # Todos
-- [ ]Enable Lite Task for Task Process
-    - [ ] Codify the executiong of Hard Sphere
+- [ ] Enable Lite Task for Task Process
+    - [X] Codify the executiong of Hard Sphere
     - [ ] Codify the executiong of Soft Sphere
     - [ ] Codify the executiong of Yukawa
-    - [ ] Execute with API and Celery
+- [ ] Configure Broker  for connect microservice 
+    - [ ] Configure User for connect to broker externally
+- [ ] Execute with API and Celery
