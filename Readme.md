@@ -70,3 +70,11 @@ celery worker -A main.main.celery_instance --loglevel=info
 - [ ] Configure Broker  for connect microservice 
     - [ ] Configure User for connect to broker externally
 - [ ] Execute with API and Celery
+
+# Project Configuration
+## machine Package
+### **process_lite**
+
+This type of process are process that its execution taks a small measure of time usually in order milliseconds.
+
+It's important that you store in the follow path: ```bash/home/<USER_NAME>/core_programs``` 
