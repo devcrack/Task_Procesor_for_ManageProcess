@@ -1,11 +1,10 @@
 from flask import Flask, make_response, request
 from flask import jsonify
 
-from main.utils import select_program
 import main.task_s.task0 as task0
 import main.configure
 import main.machine.process_lite as p_lite
-
+import main.machine.md_heavy as p_md_hvy
 
 flask_app = Flask(__name__)
 
@@ -49,17 +48,15 @@ def api():
 
 def call_task(input):
     id_prog = input['id_process']
-    f_v = input['frac_vol']
+    fv = input['frac_vol']
     
     if id_prog == 0:
-        exe_hrdsphere.delay(f_v)
+        exe_hrdsphere.delay(fv)
     if id_prog == 1:
         it = input['ini_temp']
-        print('Executing Soft Sphere\n')
-        print('Initial temp', it)
-        print('volumen factor', f_v)
-    if id_prog == 2:
-        print('Executing Yukawa')    
+        exe_softsphere.delay(fv, it)
+    if id_prog == 3:
+        exe_dyn_mdl.delay(fv)
 
 
 
@@ -68,6 +65,13 @@ def exe_hrdsphere(frac_vol):
     p_lite.exe_hard_sphere(frac_vol)
 
 
+
 @celery_instance.task
 def exe_softsphere(frac_vol, init):
     p_lite.exe_soft_sphere(frac_vol, init)
+
+
+
+@celery_instance.task
+def exe_dyn_mdl(frac_vol):
+    p_md_hvy.exe_dyn_mdl(frac_vol)    
