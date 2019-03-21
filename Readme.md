@@ -71,4 +71,5 @@ celery worker -A main.main.celery_instance --loglevel=info
 - [X] Configure Broker  for connect microservice 
     - [X] Configure User for connect to broker externally
 - [X] Execute with API and Celery
+- [X] Execute procces through api and celery
 - [ ] Enable the file Download as we were doing  in previous versions
