@@ -54,7 +54,10 @@ def call_task(input):
     if id_prog == 0:
         exe_hrdsphere.delay(f_v)
     if id_prog == 1:
-        print('Executing Soft Sphere')
+        it = input['ini_temp']
+        print('Executing Soft Sphere\n')
+        print('Initial temp', it)
+        print('volumen factor', f_v)
     if id_prog == 2:
         print('Executing Yukawa')    
 
@@ -64,3 +67,7 @@ def call_task(input):
 def exe_hrdsphere(frac_vol):    
     p_lite.exe_hard_sphere(frac_vol)
 
+
+@celery_instance.task
+def exe_softsphere(frac_vol, init):
+    p_lite.exe_soft_sphere(frac_vol, init)
