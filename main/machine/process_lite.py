@@ -22,12 +22,10 @@ def exe_hard_sphere(frac_vol):
         Returns:
             void:nothing :p
     """
-    #exe = prg_path + '/01Sk_HSphere/Benny_Version/01Hard_Spheere' 
+
     exe = os.chdir(prg_path + '/01Sk_HSphere/Benny_Version')     
     exe = os.getcwd()
-
     pcs = sbp.Popen([exe + '/01Hard_Spheere', str(frac_vol)], stdout=sbp.PIPE, stderr=sbp.PIPE)
-    
     out, error = pcs.communicate()
 
     if out:
@@ -38,6 +36,26 @@ def exe_hard_sphere(frac_vol):
     if not pcs.poll():
         print("Program hard_sphere execute finish")
 
+
+
+def exe_soft_sphere(fv, it):
+    """ 
+    Execute the program of soft sphere 
+
+
+    Args:
+
+        fv (float):Volumen Fraction for do the calculates.
+        it (float):Initial tempeture
+        Returns:
+            void:nothing :p
+    """
+
+
+    exe_p = os.chdir(prg_path + '/02SK_Soft_Sphere')
+    exe_p = os.getcwd()
+    pcs = sbp.Popen([exe_p + '/02SSphere', str(fv), str(it)], stdout=sbp.PIPE, stderr=sbp.PIPE)       
+    out, error = pcs.communicate()
 
 if __name__ == "__main__":
     exe_hard_sphere(0.5)
