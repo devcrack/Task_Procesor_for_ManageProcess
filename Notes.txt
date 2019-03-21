@@ -11,9 +11,20 @@
         #    "paymentType": 2
         # }
 
-JSON Structure for hipCC
+JSON Structure for hard sphere program execution
 {
-        id_user: 0
-        id_process: 1
-        frac_vol: 0.5
+        "id_user": 0
+        "id_process": 0
+        "frac_vol": 0.5
 }
+
+
+JSON Structure for soft sphere program execution
+{
+        "id_user": 0
+        "id_process": 1
+        "frac_vol": 0.5
+        "ini_temp": -2
+}
+
+
