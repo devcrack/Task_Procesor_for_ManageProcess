@@ -4,6 +4,8 @@ from flask import jsonify
 from main.utils import select_program
 import main.task_s.task0 as task0
 import main.configure
+import main.machine.process_lite as p_lite
+
 
 flask_app = Flask(__name__)
 
@@ -46,8 +48,19 @@ def api():
 
 
 def call_task(input):
-    id_program = input['id_process']
+    id_prog = input['id_process']
     f_v = input['frac_vol']
-    print('Id_Program = ', id_program)
+    
+    if id_prog == 0:
+        exe_hrdsphere.delay(f_v)
+    if id_prog == 1:
+        print('Executing Soft Sphere')
+    if id_prog == 2:
+        print('Executing Yukawa')    
 
-    select_program.program_execute(id_program, f_v)
+
+
+@celery_instance.task
+def exe_hrdsphere(frac_vol):    
+    p_lite.exe_hard_sphere(frac_vol)
+
