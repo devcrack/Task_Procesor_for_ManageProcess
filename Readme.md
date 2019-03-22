@@ -97,7 +97,7 @@ celery worker -A main.main.celery_instance --loglevel=info
 ```
 
 
-# Todos :octocat:
+# :octocat: :camel: Todos :rocket:
 - [x] Enable Lite Task for Task Process
     - [X] Codify the executiong of Hard Sphere
     - [X] Codify the executiong of Soft Sphere
