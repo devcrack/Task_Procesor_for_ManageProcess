@@ -3,9 +3,7 @@ import subprocess as sbp
 
 
 home = os.path.expanduser('~')
-
 prg_dir = '/core_programs/Bank_Mdls'
-
 """/home/<USER_DIRECTORY>/core_prg/Bank_Mdls  """
 prg_path = home + prg_dir
 
@@ -16,18 +14,17 @@ def exe_hard_sphere(frac_vol):
 
 
     Args:
-
         frac_vol (float):Volumen Fraction for do the calculates.
 
-        Returns:
-            void:nothing :p
+
+    Returns:
+        void:nothing :p
     """
 
     exe = os.chdir(prg_path + '/01Sk_HSphere/Benny_Version')     
     exe = os.getcwd()
     pcs = sbp.Popen([exe + '/01Hard_Spheere', str(frac_vol)], stdout=sbp.PIPE, stderr=sbp.PIPE)
     out, error = pcs.communicate()
-
     if out:
         print('OK', out)
     if error:
@@ -43,13 +40,13 @@ def exe_soft_sphere(fv, it):
 
 
     Args:
-
         fv (float):Volumen Fraction for do the calculates.
         it (float):Initial tempeture
-        Returns:
-            void:nothing :p
+    
+    
+    Returns:
+        void:nothing :p
     """
-
 
     exe_p = os.chdir(prg_path + '/02SK_Soft_Sphere')
     exe_p = os.getcwd()
@@ -62,7 +59,32 @@ def exe_soft_sphere(fv, it):
     if not pcs.poll():
         print("Program soft_sphere execute finish")
 
+    
+def exe_yukawa_hs(fv, it):
+    """ 
+    Execute the program of yukawa hard spheres
+
+
+    Args:
+        fv (float):Volumen Fraction for do the calculates.
+        it (float):Initial tempeture
+
+
+    Returns:
+        void:nothing :p
+    """
+
+    exe_p = os.chdir(prg_path + '/03SK-Yukawa_HardS')
+    exe_p = os.getcwd()
+    pcs = sbp.Popen([exe_p + '/03Yuk', str(fv), str(it)], stdout=sbp.PIPE, stderr=sbp.PIPE)       
+    out, error = pcs.communicate()
+    if out:
+        print('OK', out)
+    if error:
+        print('Error', error.strip())        
+    if not pcs.poll():
+        print("Program yukawa execute finish")
 
 
 if __name__ == "__main__":
-    exe_soft_sphere(0.5, 0.1)
+    exe_yukawa_hs(0.5, 0.1)
