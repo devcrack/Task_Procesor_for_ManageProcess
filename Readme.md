@@ -2,10 +2,11 @@
 ## Requirements :
 * Rabittmq
 * celery
-* virtualenv
-* python 3 or higher
+* flask
+* python3-venv
+* python 3.5 or higher
 
-## RabbitMQ configuration
+## RabbitMQ install & configuration
 First of all you need to have install the broker. For this we going use RabbitQM server.
 
 For install this: ```sudo apt install rabbitmq-server``` :+1:
@@ -32,7 +33,7 @@ As invited by the installer, we need to restart rabbitMQ as follows:
 sudo service rabbitmq-server restart
 *Restarting message broker rabbitmq-server         [OK]
 ```
-Now using the web browser we can now reach the home page of the management console by navigating to *http://\<hostname\>:15672*
+Now using the web browser we can now reach the home page of the management console by navigating to *http://\<host-address\>:15672*
 
 ### Configuring users 
 We need to configure an administrator user in the Broker as follows:
@@ -48,8 +49,41 @@ Setting tags for user "ccm-admin" to [administrator] ......done.
 rabbitmqctl set_permissions -p / <YOUR_USERNAME> ".*" ".*" ".*"
 
 ```
+
+## Creating virtual environment
+First of all you need to have install the **python3-venv**.
+
+For install this: ```sudo apt install python3-venv``` :+1:
+
+After of that we  create the virtual environment for as follows:
+```bash
+python3 -m venv <path_&_name_directory_VENV>
+```
+
+For activate it:
+```bash
+source <path_&_name_directory_VENV>/bin/activate
+```
+
+For deactivate it :
+```bash
+deactivate
+```
+
+## Installing packages for project 
+For this you have to have activate the virtual environment, once you have done it
+```bash
+pip install flask celery 
+```
+
 ## Celery broker configuration
-In your Celery base configuration you have to add the parameters that we have configured 
+In your Celery base configuration in configure.py file you have to add the parameters that we have configured in **RabbitMQ install & configuration**  section
+```bash
+Task_Procesor_for_ManageProcess
+├── main
+│   ├── configure.py
+```
+
 ```python
 CELERY_BROKER_URL = 'amqp://<YOUR_USERNAME>:<YOUR_USERPASSWORD>@<BROKER_SERVER_ADDRESS>:5672'
 ```
@@ -57,19 +91,20 @@ A Result Backend if you have
 ```python
 CELERY_RESULT_BACKEND = 'mongodb://user:mientras123@ds157574.mlab.com:57574/connect_to_mongo'
 ```
-## Executing Task 
+## Executing Celery Tasks 
 ```bash
 celery worker -A main.main.celery_instance --loglevel=info
 ```
 
-# Todos
-- [ ] Enable Lite Task for Task Process
+
+# Todos :octocat:
+- [x] Enable Lite Task for Task Process
     - [X] Codify the executiong of Hard Sphere
     - [X] Codify the executiong of Soft Sphere
-    - [ ] Codify the executiong of Yukawa
+    - [X] Codify the executiong of Yukawa
     - [X] Codify the executiong of Dynamic Module V0.1
-- [X] Configure Broker  for connect microservice 
-    - [X] Configure User for connect to broker externally
+- [x] Configure Broker  for connect microservice 
+    - [x] Configure User for connect to broker externally
 - [X] Execute with API and Celery
 - [X] Execute procces through api and celery
 - [ ] Enable the file Download as we were doing  in previous versions
