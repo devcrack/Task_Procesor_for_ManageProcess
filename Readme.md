@@ -150,4 +150,5 @@ JSON Structure for Dynamic Module
     - [x] Configure User for connect to broker externally
 - [X] Execute with API and Celery
 - [X] Execute procces through api and celery
+- [X] Create documentation up to the current progress
 - [ ] Enable the file Download as we were doing  in previous versions
