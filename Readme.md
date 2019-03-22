@@ -96,6 +96,49 @@ CELERY_RESULT_BACKEND = 'mongodb://user:mientras123@ds157574.mlab.com:57574/conn
 celery worker -A main.main.celery_instance --loglevel=info
 ```
 
+## Project Execution
+In root of project directory type: 
+```bash
+python run.py
+```
+**Note** You have to have the virtual environment activate it for execute the project.
+
+## Test using INSOMNIA
+[Download ISNOMNIA](https://insomnia.rest/download/#linux)
+
+Once you have installed insomnia run the test on it.
+
+Request type **POST**
+
+URL for request: **http://<server_address>:5000/start_work**
+
+JSON Structure for hard sphere program execution
+```json
+{
+        "id_user":0,
+        "id_process":0,
+        "frac_vol":0.5
+}
+```
+JSON Structure for soft sphere and yukawa hard_sphere programs execution id_process for Soft Sphere is 1, 
+id_process for Yukawa is 2
+```json
+{
+	"id_user":1,
+	"id_process":2,
+	"frac_vol":0.5,
+	"ini_temp":-2	
+}
+```
+JSON Structure for Dynamic Module
+```json
+{
+        "id_user": 0,
+        "id_process": 1,
+        "frac_vol": 0.5 
+}
+```
+
 
 #  :camel: Todos :rocket:
 - [x] Enable Lite Task for Task Process
