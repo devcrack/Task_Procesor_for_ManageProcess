@@ -14,7 +14,7 @@ celery_instance = task0.make_celery(flask_app) #Creating celery Instance
 
 
 """ Get the petition with the json attached for process the request """
-@flask_app.route('/lite_task' , methods=['POST'])
+@flask_app.route('/start_work' , methods=['POST'])
 def api():
     data = None
     try:
@@ -55,6 +55,9 @@ def call_task(input):
     if id_prog == 1:
         it = input['ini_temp']
         exe_softsphere.delay(fv, it)
+    if id_prog == 2:
+        it = input['ini_temp']
+        exe_yuk_hs.delay(fv, it)        
     if id_prog == 3:
         exe_dyn_mdl.delay(fv)
 
@@ -73,5 +76,12 @@ def exe_softsphere(frac_vol, init):
 
 
 @celery_instance.task
+def exe_yuk_hs(frac_vol, init):
+    p_lite.exe_yukawa_hs(frac_vol, init)
+
+
+
+@celery_instance.task
 def exe_dyn_mdl(frac_vol):
     p_md_hvy.exe_dyn_mdl(frac_vol)    
+
