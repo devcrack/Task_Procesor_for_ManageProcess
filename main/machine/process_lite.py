@@ -1,13 +1,21 @@
+"""Execution of simple structures factor for the alpha version of HipCC.
+
+In this version of the development of hipcc the manage of files is made through simple tools that we 
+have created but in the nearly future we pretend that all this stuffs be made with a efficient 
+data base that store large files that can manage big data among others cool features.    
+
+So for the moment we need the user name to store his file in the correct directory.
+"""
+
+
 import os
 import subprocess as sbp
 
 
 home = os.path.expanduser('~')
 prg_dir = '/core_programs/Bank_Mdls'
-"""/home/<USER_DIRECTORY>/core_prg/Bank_Mdls  """
 prg_path = home + prg_dir
-
-
+fles_dir = home + '/hipcc_data'
 def exe_hard_sphere(frac_vol):
     """ 
     Execute the program of hard sphere 
@@ -28,10 +36,12 @@ def exe_hard_sphere(frac_vol):
     if out:
         print('OK', out)
     if error:
-        print('Error', error.strip())        
+        print('Error', error.strip())
+        return 0        
     if not pcs.poll():
         print("Program hard_sphere execute finish")
-
+    fle_name = 'sk_HSpheere.dat'
+    out_fle = '/data/' + fle_name
 
 
 def exe_soft_sphere(fv, it):
