@@ -13,9 +13,14 @@ import subprocess as sbp
 
 
 home = os.path.expanduser('~')
+"""  directory of core programs""" 
 prg_dir = '/core_programs/Bank_Mdls'
+""" full path of core programs""" 
 prg_path = home + prg_dir
+""" directory where user files are stored""" 
 fles_dir = home + '/hipcc_data'
+
+
 def exe_hard_sphere(frac_vol):
     """ 
     Execute the program of hard sphere 
@@ -40,8 +45,11 @@ def exe_hard_sphere(frac_vol):
         return 0        
     if not pcs.poll():
         print("Program hard_sphere execute finish")
+    """Name of the generated file"""
     fle_name = 'sk_HSpheere.dat'
+    """final directory where the output of program"""
     out_fle = '/data/' + fle_name
+    
 
 
 def exe_soft_sphere(fv, it):
