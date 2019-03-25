@@ -151,4 +151,5 @@ JSON Structure for Dynamic Module
 - [X] Execute with API and Celery
 - [X] Execute procces through api and celery
 - [X] Create documentation up to the current progress
+- [ ] Create user directories as we were doing  in previous versions
 - [ ] Enable the file Download as we were doing  in previous versions
