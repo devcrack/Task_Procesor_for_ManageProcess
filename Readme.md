@@ -115,7 +115,7 @@ URL for request: **http://<server_address>:5000/start_work**
 JSON Structure for hard sphere program execution
 ```json
 {
-        "id_user":0,
+        "user_mail":pedro@gmail.com,
         "id_process":0,
         "frac_vol":0.5
 }
@@ -124,7 +124,7 @@ JSON Structure for soft sphere and yukawa hard_sphere programs execution id_proc
 id_process for Yukawa is 2
 ```json
 {
-	"id_user":1,
+    "user_mail":pedro@gmail.com,
 	"id_process":2,
 	"frac_vol":0.5,
 	"ini_temp":-2	
@@ -132,8 +132,8 @@ id_process for Yukawa is 2
 ```
 JSON Structure for Dynamic Module
 ```json
-{
-        "id_user": 0,
+{        
+        "user_mail":pedro@gmail.com,
         "id_process": 1,
         "frac_vol": 0.5 
 }

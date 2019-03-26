@@ -6,11 +6,9 @@ data base that store large files that can manage big data among others cool feat
 
 So for the moment we need the user name to store his file in the correct directory.
 """
-
-
 import os
 import subprocess as sbp
-
+import main.utils.simple_mnge_files as dummy_sys_file
 
 home = os.path.expanduser('~')
 """  directory of core programs""" 
@@ -18,10 +16,10 @@ prg_dir = '/core_programs/Bank_Mdls'
 """ full path of core programs""" 
 prg_path = home + prg_dir
 """ directory where user files are stored""" 
-fles_dir = home + '/hipcc_data'
+fles_dir = home + '/hipcc_data/'
 
 
-def exe_hard_sphere(frac_vol):
+def exe_hard_sphere(frac_vol,usr):
     """ 
     Execute the program of hard sphere 
 
@@ -46,13 +44,16 @@ def exe_hard_sphere(frac_vol):
     if not pcs.poll():
         print("Program hard_sphere execute finish")
     """Name of the generated file"""
-    fle_name = 'sk_HSpheere.dat'
-    """final directory where the output of program"""
-    out_fle = '/data/' + fle_name
+    fle_name = 'sk_HSpheere'
+    """full path of the output of program"""
+    out_fle = exe + '/data/' + fle_name + '.dat'
+    p_nme = 'Hard_Sphere'
+    dest_pth = fles_dir + usr + '/' + p_nme
+    dummy_sys_file.cpy_file_to_usr_dir(out_fle, dest_pth, fle_name)
     
 
 
-def exe_soft_sphere(fv, it):
+def exe_soft_sphere(fv, it, usr):
     """ 
     Execute the program of soft sphere 
 
@@ -73,12 +74,21 @@ def exe_soft_sphere(fv, it):
     if out:
         print('OK', out)
     if error:
-        print('Error', error.strip())        
+        print('Error', error.strip())
+        return 0        
     if not pcs.poll():
         print("Program soft_sphere execute finish")
-
+    """Name of the file to Copy file"""
+    fle_name = 'SKsoft_sphere'
+    """full path of the output of program"""
+    out_fle = exe_p + '/data/' + 'sk_SSphere.dat'
+    p_nme = 'Soft_Sphere'
+    dest_pth = fles_dir + usr + '/' + p_nme
+    dummy_sys_file.cpy_file_to_usr_dir(out_fle, dest_pth, fle_name)
     
-def exe_yukawa_hs(fv, it):
+
+
+def exe_yukawa_hs(fv, it, usr):
     """ 
     Execute the program of yukawa hard spheres
 
@@ -102,6 +112,12 @@ def exe_yukawa_hs(fv, it):
         print('Error', error.strip())        
     if not pcs.poll():
         print("Program yukawa execute finish")
+    fle_name = 'SK_Yuwaka'
+    """full path of the output of program"""
+    out_fle = exe_p + '/data/' + 'sk_MonoYuk.dat'
+    p_nme = 'Yukawa'
+    dest_pth = fles_dir + usr + '/' + p_nme
+    dummy_sys_file.cpy_file_to_usr_dir(out_fle, dest_pth, fle_name)
 
 
 if __name__ == "__main__":

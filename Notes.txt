@@ -18,6 +18,14 @@ JSON Structure for hard sphere program execution
         "frac_vol": 0.5
 }
 
+JSON Structure for soft sphere and yukawa hard_sphere programs execution
+{
+	"id_user":1,
+	"id_process":2,
+	"frac_vol":0.5,
+	"ini_temp":-2	
+}
+
 
 JSON Structure for soft sphere program execution
 {
