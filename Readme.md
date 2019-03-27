@@ -108,6 +108,20 @@ python run.py
 
 Once you have installed insomnia run the test on it.
 
+###Note
+Is important that you have created this directorires:
+- core_programs
+- hipcc_data
+
+in the root of home user directory jus like this: 
+```bash
+home/
+└── yeyo    
+    ├── core_programs
+    ├── hipcc_data
+```
+
+### Executing Process
 Request type **POST**
 
 URL for request: **http://<server_address>:5000/start_work**
@@ -145,6 +159,43 @@ JSON Structure for Dynamic Module
         "frac_vol": 0.5 
 }
 ```
+###Creating user directories
+Request Type: **POST**
+
+URL:http://<SERVER_ADDRESS>:5000/mkdir_usr
+JSON Structure for create user directories
+```json
+{        
+        "user_mail":pedro@gmail.com
+}
+```
+###Get directories content
+Request Type: **POST**
+
+URL: http://<SERVER_ADRRESS>:5000/ls_dir
+```json
+{        
+        "user_mail":pedro@gmail.com,
+        "psedo_pth:["child_dir1", "child_child_dir",.....]
+}
+```
+**user_mail:** Mail user is the root directory name.
+**psedo_pth:** Is a list with all the directories of path in other words  all the nested directories from root directory.
+
+###Download Files
+Request Type: **POST**
+
+URL: http://<SERVER_ADDRESS>:5000/get_file
+
+Example JSON Body
+```json
+{
+	"user_mail":"alejandro@gmail.com",
+	"psedo_pth":["Dynamic", "corrida1"],
+	"fle_name": "mi vieja.jpg"
+	
+}
+```
 
 
 #  :camel: Todos :rocket:
@@ -158,5 +209,5 @@ JSON Structure for Dynamic Module
 - [X] Execute with API and Celery
 - [X] Execute procces through api and celery
 - [X] Create documentation up to the current progress
-- [ ] Create user directories as we were doing  in previous versions
-- [ ] Enable the file Download as we were doing  in previous versions
+- [X] Create user directories as we were doing  in previous versions
+- [X] Enable the file Download as we were doing  in previous versions
