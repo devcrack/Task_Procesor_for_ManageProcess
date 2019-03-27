@@ -1,4 +1,4 @@
-from flask import Flask, make_response, request
+from flask import Flask, make_response, request, send_file
 from flask import jsonify
 
 import main.task_s.task0 as task0
@@ -107,16 +107,15 @@ def download_file():
     data, msg, err = get_data()
     if err:
         return make_response(msg, err)
-    usr_tg = data['user_mail']
+    pth = data['user_mail']
     fle_nm = data['fle_name']
     dirs = data['psedo_pth']
     for dr in dirs:
         pth = pth + '/' + dr
     pth = pth + '/' + fle_nm
     pth = dummy_sys_file.get_fll_pth(pth)
-    print(pth)
-    return make_response('TMP RESPONSE', 200)
-
+    return send_file(pth, attachment_filename=fle_nm)
+    
 
 def get_data():
     try:
