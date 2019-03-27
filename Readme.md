@@ -153,6 +153,8 @@ JSON Structure for Dynamic Module
         "frac_vol": 0.5 
 }
 ```
+Return : make_response('User correctly created', 200)
+
 ### Creating user directories
 Request Type: **POST**
 
@@ -163,6 +165,7 @@ JSON Structure for create user directories
         "user_mail":"pedro@gmail.com"
 }
 ```
+Return : make_response('User correctly created', 200)
 ### Get directories content
 Request Type: **POST**
 
@@ -180,7 +183,7 @@ URL: http://<SERVER_ADRRESS>:5000/ls_dir
 ### Download Files
 Request Type: **POST**
 
-URL: http://<SERVER_ADDRESS>:5000/get_file
+URL: http://<SERVER_ADDRESS>:5000/**get_file**
 
 Example JSON Body
 ```json
