@@ -126,12 +126,6 @@ Request type **POST**
 
 URL for request: **http://<server_address>:5000/start_work**
 
-JSON Structure for create a new user directory in host file system 
-```json
-{
-        "user_mail":"pedro@gmail.com",        
-}
-
 ```
 JSON Structure for hard sphere program execution
 ```json
@@ -159,7 +153,7 @@ JSON Structure for Dynamic Module
         "frac_vol": 0.5 
 }
 ```
-###Creating user directories
+### Creating user directories
 Request Type: **POST**
 
 URL:http://<SERVER_ADDRESS>:5000/mkdir_usr
@@ -169,7 +163,7 @@ JSON Structure for create user directories
         "user_mail":"pedro@gmail.com"
 }
 ```
-###Get directories content
+### Get directories content
 Request Type: **POST**
 
 URL: http://<SERVER_ADRRESS>:5000/ls_dir
@@ -183,7 +177,7 @@ URL: http://<SERVER_ADRRESS>:5000/ls_dir
 
 **psedo_pth:** Is a list with all the directories of path in other words  all the nested directories from root directory.
 
-###Download Files
+### Download Files
 Request Type: **POST**
 
 URL: http://<SERVER_ADDRESS>:5000/get_file
