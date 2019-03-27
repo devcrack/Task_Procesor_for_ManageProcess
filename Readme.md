@@ -129,14 +129,14 @@ URL for request: **http://<server_address>:5000/start_work**
 JSON Structure for create a new user directory in host file system 
 ```json
 {
-        "user_mail":pedro@gmail.com,        
+        "user_mail":"pedro@gmail.com",        
 }
 
 ```
 JSON Structure for hard sphere program execution
 ```json
 {
-        "user_mail":pedro@gmail.com,
+        "user_mail":"pedro@gmail.com",
         "id_process":0,
         "frac_vol":0.5
 }
@@ -145,7 +145,7 @@ JSON Structure for soft sphere and yukawa hard_sphere programs execution id_proc
 id_process for Yukawa is 2
 ```json
 {
-    "user_mail":pedro@gmail.com,
+    "user_mail":"pedro@gmail.com",
 	"id_process":2,
 	"frac_vol":0.5,
 	"ini_temp":-2	
@@ -154,7 +154,7 @@ id_process for Yukawa is 2
 JSON Structure for Dynamic Module
 ```json
 {        
-        "user_mail":pedro@gmail.com,
+        "user_mail":"pedro@gmail.com",
         "id_process": 1,
         "frac_vol": 0.5 
 }
@@ -166,7 +166,7 @@ URL:http://<SERVER_ADDRESS>:5000/mkdir_usr
 JSON Structure for create user directories
 ```json
 {        
-        "user_mail":pedro@gmail.com
+        "user_mail":"pedro@gmail.com"
 }
 ```
 ###Get directories content
@@ -175,11 +175,12 @@ Request Type: **POST**
 URL: http://<SERVER_ADRRESS>:5000/ls_dir
 ```json
 {        
-        "user_mail":pedro@gmail.com,
+        "user_mail":"pedro@gmail.com",
         "psedo_pth:["child_dir1", "child_child_dir",.....]
 }
 ```
 **user_mail:** Mail user is the root directory name.
+
 **psedo_pth:** Is a list with all the directories of path in other words  all the nested directories from root directory.
 
 ###Download Files
@@ -192,11 +193,15 @@ Example JSON Body
 {
 	"user_mail":"alejandro@gmail.com",
 	"psedo_pth":["Dynamic", "corrida1"],
-	"fle_name": "mi vieja.jpg"
+	"fle_name": "nudes.jpg"
 	
 }
 ```
+**user_mail:** Mail user is the root directory name.
 
+**psedo_pth:** Is a list with all the directories of path in other words  all the nested directories from root directory.
+
+**fle_name** Name of the file to download.
 
 #  :camel: Todos :rocket:
 - [x] Enable Lite Task for Task Process
