@@ -112,6 +112,13 @@ Request type **POST**
 
 URL for request: **http://<server_address>:5000/start_work**
 
+JSON Structure for create a new user directory in host file system 
+```json
+{
+        "user_mail":pedro@gmail.com,        
+}
+
+```
 JSON Structure for hard sphere program execution
 ```json
 {

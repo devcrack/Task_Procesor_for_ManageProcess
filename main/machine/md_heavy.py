@@ -3,16 +3,17 @@ import subprocess as sbp
 import main.utils.simple_mnge_files as dummy_sys_file
 import main.utils.date_time as time
 
+
 home = os.path.expanduser('~')
 prg_dir = '/core_programs//NSCGLE_Theory'
 prg_path = home + prg_dir
-""" directory where user files are stored""" 
+""" directory where user files are stored"""
 fles_dir = home + '/hipcc_data/'
 
 
 def exe_dyn_mdl(fv, usr):
-    """ 
-    Execute the program of dynamic module 
+    """
+    Execute the program of dynamic module
 
 
     Args:
@@ -29,7 +30,7 @@ def exe_dyn_mdl(fv, usr):
     if out:
         print('OK', out)
     if error:
-        print('Error', error.strip())        
+        print('Error', error.strip())     
     if not pcs.poll():
         print("Dynamic Module execute finish")
     p_nme = 'Dynamic'
