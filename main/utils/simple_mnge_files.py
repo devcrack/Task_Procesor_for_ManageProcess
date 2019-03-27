@@ -17,7 +17,7 @@ def crt_dir(pth_dir):
             raise
 
 
-def cpy_file_to_usr_dir(src_pth_fle, dest_pth, fle_name):
+def cpy_file_to_pth_dir(src_pth_fle, dest_pth, fle_name):
     """
     Copy a file from the source path file to the user directory
 
@@ -42,7 +42,6 @@ def crt_dir_user(user_tag):
     """
     Create the user directory and all its nested directories.
 
-
     Args:
         user_tag(string): Is a tag for identified the directory of this user.
 
@@ -62,22 +61,21 @@ def crt_dir_user(user_tag):
             raise
 
 
-def list_usr_dir(usr):
+def ls_pth_dir(pth):
+    splt = pth.split('/')
+    nme_dir = splt[len(splt) - 1]
     data = {}
-    data[usr] = {}
-    fll_pth = fles_dir + usr
-    # Abriendo el directorio del usuario
+    data[nme_dir] = []
+    fll_pth = fles_dir + pth
     crrnt_dir = pathlib.Path(fll_pth)
-    ptr_dat = data[usr]
-    for directories_inside in crrnt_dir.iterdir():
-        ptr_dat[directories_inside.name] = []
-        # Abriendo cada archivo dentro de los
-        # directorios que estan dentro del directorio de usuario.
-        current_directory_nested = pathlib.Path(directories_inside)
-        for files_in_directory in current_directory_nested.iterdir():
-            ptr_dat[directories_inside.name].append(files_in_directory.name)
-        ptr_dat[directories_inside.name].sort()
+    for _file in crrnt_dir.iterdir():
+        data[nme_dir].append(_file.name)
+    data[nme_dir].sort()
     return data
+
+
+def get_fll_pth(psedo_pth):
+    return fles_dir + psedo_pth
 
 
 if __name__ == "__main__":
